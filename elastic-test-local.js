@@ -1,5 +1,5 @@
 "use strict";
-const { env } = require("dotenv").config();
+const { env } = require("dotenv").config({ path: ".env-local" });
 const fs = require("fs");
 
 const { Client } = require("@elastic/elasticsearch");
@@ -10,8 +10,8 @@ const client = new Client({
     password: process.env.elastic_password,
   },
   tls: {
-    ca: fs.readFileSync("./certs/http_ca.crt"),
-    rejectUnauthorized: false,
+    ca: fs.readFileSync("./http_ca.crt"),
+    rejectUnauthorized: true,
   },
 });
 
@@ -49,7 +49,7 @@ async function run() {
   const result = await client.search({
     index: "game-of-thrones",
     query: {
-      match: { quote: "dragon" },
+      match: { quote: "books" },
     },
   });
 

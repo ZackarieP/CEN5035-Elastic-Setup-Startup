@@ -1,5 +1,7 @@
 node_modules/
+certs/
 http_ca.crt
-.env*
+.env
 .env-local
 .env-cloud
+elastic-enrollment.png

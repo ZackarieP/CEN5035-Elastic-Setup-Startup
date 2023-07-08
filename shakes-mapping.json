@@ -1,10 +1,33 @@
 {
 	"mappings" : {
 		"properties" : {
-			"speaker" : {"type": "keyword" },
-			"play_name" : {"type": "keyword" },
-			"line_id" : { "type" : "integer" },
-			"speech_number" : { "type" : "integer" }
+			"speaker" : 
+				{"type": "keyword" },
+			"play_name" : 
+				{"type": "keyword" },
+			"line_id" : 
+				{ "type" : "integer" },
+			"speech_number" : 
+					{ "type" : "integer" }
 		}
 	}
+}
+
+
+# PUT /shakespeare/_mapping
+{
+  "properties": {
+    "play_name": {
+      "type": "keyword"
+    },
+    "speech_number": {
+      "type": "integer"
+    },
+    "speaker": {
+      "type": "keyword"
+    },
+    "line_id": {
+      "type": "integer"
+    }
+  }
 }
